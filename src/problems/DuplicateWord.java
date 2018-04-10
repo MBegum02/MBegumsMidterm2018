@@ -1,5 +1,7 @@
 package problems;
 
+import databases.ConnectDB;
+
 /**
  * Created by mrahman on 04/22/17.
  */
@@ -10,8 +12,10 @@ public class DuplicateWord {
          * Write a java program to find the duplicate words and their number of occurrences in the string.
          * Also Find the average length of the words.
          */
-
+        ConnectDB connectDB = new ConnectDB();
         String st = "Java is a programming Language. Java is also an Island of Indonesia. Java is widely used language";
+
+
 
     }
 
