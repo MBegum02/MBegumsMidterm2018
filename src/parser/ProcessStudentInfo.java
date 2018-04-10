@@ -39,7 +39,8 @@ public class ProcessStudentInfo {
 				String pathSelenium  = System.getProperty("user.dir") +"/src/parser/selenium.xml";
 				String pathQtp = System.getProperty("user.dir") + "/src/parser/qtp.xml";
 				String tag = "id";
-                //Create ConnectDB Object
+
+				//Create ConnectDB Object
 				ConnectDB connectDB = new ConnectDB();
 				//Declare a Map with List<String> into it.
 				Map<String,List<Student>> list = new LinkedHashMap<String,List<Student>>();
@@ -58,13 +59,22 @@ public class ProcessStudentInfo {
 				seleniumStudents = xmlReader.parseData(tag, pathSelenium);
 
 				//Parse Data using parseData method and then store data into Qtp ArrayList.
+
+				list.put("Student_sel: ", seleniumStudents);
 				
 				//add Selenium ArrayList data into map.
+
+
 			
 				//add Qtp ArrayList data into map.
-		
+
+				list.put("student_qtp: ", qtpStudents);
 		      	
 				//Retrieve map data and display output.
+				for(Map.Entry e: list.entrySet()){
+
+
+				}
 
 
 
@@ -75,13 +85,13 @@ public class ProcessStudentInfo {
 				//Store Selenium data into Selenium table in Database
 
 				//Retrieve Qtp students from Database
-               List<Student> stList = connectDB.readStudentListFromMongoDB("qtp");
-               for(Student st:stList){
-               	  System.out.println(st.getFirstName()+" "+st.getLastName()+" "+st.getScore()+" "+st.getId());
-			   }
+
 
 			   //Retrieve Selenium students from Database
-
+				List<Student> stList = connectDB.readStudentListFromMongoDB("Selenium");
+				for(Student st:stList){
+					System.out.println(st.getFirstName()+" "+st.getLastName()+" "+st.getScore()+" "+st.getId());
+				}
 
 			}
 
